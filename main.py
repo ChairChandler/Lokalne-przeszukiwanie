@@ -82,7 +82,7 @@ def main(instances_path: str, repeat: int, output_path: str):
         print('[COST]')
         print(df_cost)
 
-        longest_mean_time = df_time.loc['mean'].min()
+        longest_mean_time = df_time.loc['mean'].max()
         df_random_opt = pd.DataFrame(columns=('time', 'cost'))
 
         random_solution = Solution(np.inf, Route([]))
