@@ -7,9 +7,8 @@ from ..base import Route, Solution, Optimizer, GlobalNeighborOptimizer, LocalNei
 class InnerVertexOptimizer(Optimizer, ABC):
     def _generate_solutions(self, route: Route) -> Generator[Solution, None, None]:
         route_len = len(route)
-        half_route_len = int((route_len * (route_len - 1)) / 2)
 
-        for index, point in enumerate(route[:half_route_len]):
+        for index, point in enumerate(route):
             prev_point = route[index - 1]
             next_point = route[index + 1 if index + 1 < len(route) else 0]
 
